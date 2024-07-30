@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	
+    background-image: url('https://bingw.jasonzeng.dev?index=random'); /* 设置背景图片的路径 */
+    background-size: cover; /* 让背景图片覆盖整个页面 */
+    background-position: center; /* 居中对齐背景图片 */
+    background-repeat: no-repeat; /* 不重复背景图片 */
+}
+
+#player-container {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	max-width: 600px;
+}
+
+.controls {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.controls button {
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 0 10px;
+	background: #fdfdfd;
+	border-radius: 8px;
+	border-color: #ff7800aa;
+}
+
+#cover {
+    margin-top: 20px;
+    max-width: 300px;
+    max-height: 300px;
+    display: none; /* 默认隐藏 */
+}
+
+#track-info {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+#autoNextToggle, #loopToggle, #shuffleToggle {
+    margin-top: 10px;
+}
+
+#playlist-container {
+    margin: 20px auto;
+    width: 600px;
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #f9f9f9cc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#playlist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#playlist li:hover {
+    background-color: #ff780088;
+}
+
+#playlist li.selected {
+    background-color: #ff7800CC;
+}
+
+/* 提示栏 */
+.tip-box {
+    border: 1px solid #ccc;
+    background-color: #f9f9f999;
+    width: 600px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+/* 三个按钮的样式 */
+button.enabled {
+    background-color: #ff7800dd;
+    color: #000;
+    border: solid;
+	border-color: #fff;
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 1px;
+	font-weight: bold;
+}
+
+button.disabled {
+    background-color: #fff;
+    color: #000;
+    border: solid;
+	border-color: #ff7800aa;
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 1px;
+}
+
+/* 背景遮罩 */
+#overlay {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px; /* 设置与 #playlist-container 相同的宽度 */
+	height: 606px;
+    background-color: rgba(255, 255, 255, 0.78); /* 设置遮罩 */
+    z-index: -1; /* 确保遮罩在内容的后面 */
+    border-radius: 15px;-
+}
+
+/* 改变选中字体样式 */
+::selection {
+    background:#ff780088;
+}
+::-moz-selection {
+	background:#ff780088;
+}
+::-webkit-selection {
+	background:#ff780088;
+}
+
+/* 媒体查询：移动设备适配 */
+@media (max-width: 768px) {
+    #player-container, #playlist-container, .tip-box {
+        width: 90%; /* 适配小屏幕 */
+    }
+
+    #overlay {
+        width: 90%; /* 适配小屏幕 */
+    }
+}
