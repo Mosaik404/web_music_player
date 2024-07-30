@@ -54,12 +54,13 @@
         <div class="tip-box">
             <h3 style="line-height: 0px;">提示</h3>
             <p>使用 <a style="font-weight:bold;">Ctrl+F(桌面端)</a> 或 <a style="font-weight:bold;">“搜索页面内容”(移动端)</a> 来查找你想要的歌曲。</p>
-            <a style="font-weight: bold;">bug反馈请发：<a href="mailto:admin@mail.litmustea.eu.org" style="color:#ff7800cc;font-weight:bold;">admin@mail.litmustea.eu.org</a></a><br/>
+            <a style="font-weight: bold;">bug反馈请发：<a href="mailto:admin@mail.litmustea.eu.org" style="color:#ff7800cc;font-weight:bold;">admin@mail.litmustea.eu.org</a> 或 <a href="https://github.com/Mosaik404/web_music_player/issues" style="color:#ff7800cc;font-weight:bold;">提 issue</a></a><br/>
             <a>Created by Chat GPT 4o🤩</a>
             <p style="font-size: 10px; line-height: 10px;">
 			<a>v.2.8：大幅优化UI和配色、优化移动端UI和配色、修改按钮逻辑、网页标题滚动效果、选中字体背景颜色😋</a><br/>
 			<a>注销封面(注销：HTML & 链接外源PHP)</a>
 			</p>
+			<a href="https://github.com/Mosaik404/web_music_player">前往 Github 查看</a>
         </div>
     </div>
 
