@@ -11,7 +11,7 @@ index.php 内部的 HTML 部分用于构建页面；PHP部分用于检索同目�
 player.js 主要用于实现 “上一曲” “下一曲” “自动下一曲” “单曲循环” “随机播放” 按钮的功能。还用于更改页面信息、更改标题为当前正在播放的歌曲文件名。<br />
 内嵌的 JS 用于连接 PHP 和 JS；实现页面标题滚动效果。<br />
 外链的 mediaelement-and-player.min.js 为播放器本体。<br />
-main.css 用于构建页面格式。<br />
+main.css 用于构建页面格式。背景图片使用bing壁纸API实现随机图片。<br />
 mediaelementplayer.min.css 用于构建播放器格式。其本身为外链（[链接](https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelementplayer.min.css )），在此对其做了一定的更改，所以此处为本地格式。<br />
 
 ## 部署
