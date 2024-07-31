@@ -4,6 +4,7 @@ let loopEnabled = false; // 默认关闭单曲循环
 let shuffleEnabled = false; // 默认关闭随机播放
 let originalPlaylist = [...playlist]; // 保存原始播放列表
 let shuffledPlaylist = []; // 保存随机播放列表
+let pendingShuffle = false; // 用于指示是否需要在当前歌曲播放完毕后开始随机播放
 
 // 更新当前播放曲目信息
 function updateTrackInfo() {
@@ -11,6 +12,10 @@ function updateTrackInfo() {
     document.getElementById('trackName').innerText = trackName;
     // 更新页面标题
     document.title = trackName;
+    // 更新播放列表中高亮显示的歌曲
+    document.querySelectorAll('#playlist li').forEach((item, idx) => {
+        item.classList.toggle('selected', shuffleEnabled ? shuffledPlaylist[currentTrackIndex] === item.dataset.src.split('/').pop() : idx === currentTrackIndex);
+    });
 }
 
 // 随机打乱数组
@@ -32,9 +37,6 @@ const player = new MediaElementPlayer('player1', {
             mediaElement.load();
             mediaElement.play();
             updateTrackInfo();
-            document.querySelectorAll('#playlist li').forEach((item, idx) => {
-                item.classList.toggle('selected', idx === index); // 高亮显示当前曲目
-            });
         }
 
         // 加载下一曲目
@@ -57,6 +59,9 @@ const player = new MediaElementPlayer('player1', {
             } else if (autoNextEnabled) {
                 // 自动下一曲模式
                 loadNextTrack();
+            } else if (!autoNextEnabled && !shuffleEnabled) {
+                // 自动下一曲关闭且非随机播放模式
+                // 如果是顺序播放模式，播放完毕后不自动播放下一曲
             }
         });
 
@@ -96,16 +101,30 @@ const player = new MediaElementPlayer('player1', {
             this.textContent = shuffleEnabled ? '关闭随机播放(当前为开启)' : '开启随机播放(当前为关闭)';
             this.classList.toggle('enabled', shuffleEnabled);
             this.classList.toggle('disabled', !shuffleEnabled);
+
             if (shuffleEnabled) {
                 // 激活随机播放
                 shuffledPlaylist = shuffleArray(originalPlaylist);
                 playlist = shuffledPlaylist;
+                currentTrackIndex = shuffledPlaylist.indexOf(originalPlaylist[currentTrackIndex]);
+                if (currentTrackIndex === -1) {
+                    currentTrackIndex = 0;
+                }
+                pendingShuffle = true; // 标记为需要处理的状态
+                loadTrack(currentTrackIndex);
             } else {
                 // 关闭随机播放，恢复原始播放列表
                 playlist = originalPlaylist;
+                if (pendingShuffle) {
+                    // 当关闭随机播放时，继续播放当前曲目并从原始播放列表中进行顺序播放
+                    currentTrackIndex = originalPlaylist.indexOf(shuffledPlaylist[currentTrackIndex]);
+                    if (currentTrackIndex === -1) {
+                        currentTrackIndex = 0;
+                    }
+                    loadTrack(currentTrackIndex);
+                    pendingShuffle = false; // 重置状态
+                }
             }
-            currentTrackIndex = 0; // 从头开始播放
-            loadTrack(currentTrackIndex);
         });
 
         // 处理播放列表项点击事件
