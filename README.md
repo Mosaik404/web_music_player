@@ -23,4 +23,4 @@ mediaelementplayer.min.css 用于构建播放器格式。其本身为外链（[�
 
 ## 备注
 
-由 ChatGPT 4o 完成构建。<br />
+主要由 ChatGPT 4o 完成构建。<br />

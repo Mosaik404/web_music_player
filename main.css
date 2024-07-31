@@ -85,7 +85,7 @@ body {
 /* 提示栏 */
 .tip-box {
     border: 1px solid #ccc;
-    background-color: #ffffffbb;
+    background-color: #f9f9f999;
     width: 600px;
     border-radius: 10px;
     margin: 0 auto;
@@ -119,46 +119,22 @@ button.disabled {
     left: 50%;
     transform: translateX(-50%);
     width: 600px; /* 设置与 #playlist-container 相同的宽度 */
-    height: 606px;
+	height: 606px;
     background-color: rgba(255, 255, 255, 0.78); /* 设置遮罩 */
     z-index: -1; /* 确保遮罩在内容的后面 */
-    border-radius: 15px;
+    border-radius: 15px;-
 }
-
 
 /* 改变选中字体样式 */
 ::selection {
-    background:#ff780099;
+    background:#ff780088;
 }
 ::-moz-selection {
-	background:#ff780099;
+	background:#ff780088;
 }
 ::-webkit-selection {
-	background:#ff780099;
+	background:#ff780088;
 }
-
-/* 定义滚动条样式 */
-/* Webkit 浏览器（Chrome、Safari） */
-#playlist-container::-webkit-scrollbar {
-    width: 12px; /* 调整滚动条的宽度 */
-}
-
-#playlist-container::-webkit-scrollbar-track {
-    background: #dddddd88; /* 滚动条轨道背景色 */
-    border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px; /* 轨道圆角 */
-}
-
-#playlist-container::-webkit-scrollbar-thumb {
-    background: #ff7800; /* 滚动条滑块背景色 */
-    border-radius: 4px; /* 滑块圆角 */
-}
-
-/*#playlist-container {
-    scrollbar-width: thin; /* 滚动条宽度（thin: 细）*/
-    /*scrollbar-color: #ff7800 #f9f9f9cc; /* 滚动条滑块和轨道颜色 */
-/*}暂时用不到*/
-
 
 /* 媒体查询：移动设备适配 */
 @media (max-width: 768px) {
