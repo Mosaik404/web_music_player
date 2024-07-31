@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>音乐播放器 v.2.8</title>
+    <title>音乐播放器 v.2.9</title>
     <link rel="stylesheet" href="./mediaelementplayer.min.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div id="overlay"></div> <!--背景遮罩-->
-    <h1>音乐播放器 v.2.8</h1>
+    <h1>音乐播放器 v.2.9</h1>
     <div id="player-container">
         <!--img id="cover" src="" alt="封面"-->
         <div id="track-info">当前播放: <span id="trackName">无</span></div>
@@ -57,10 +57,10 @@
             <a style="font-weight: bold;">bug反馈请发：<a href="mailto:admin@mail.litmustea.eu.org" style="color:#ff7800cc;font-weight:bold;">admin@mail.litmustea.eu.org</a> 或 <a href="https://github.com/Mosaik404/web_music_player/issues" style="color:#ff7800cc;font-weight:bold;">提 issue</a></a><br/>
             <a>Created by Chat GPT 4o🤩</a>
             <p style="font-size: 10px; line-height: 10px;">
-			<a>v.2.8：大幅优化UI和配色、优化移动端UI和配色、修改按钮逻辑、网页标题滚动效果、选中字体背景颜色😋</a><br/>
+			<a>v.2.9：修复bug随机播放高亮不正确、增加随机播放开关时的逻辑、优化UI</a><br/>
 			<a>注销封面(注销：HTML & 链接外源PHP)</a>
 			</p>
-			<a href="https://github.com/Mosaik404/web_music_player">前往 Github 查看</a>
+			<a href="https://github.com/Mosaik404/web_music_player" style="color:#ff7800cc;font-weight:bold;">前往 Github 查看</a>
         </div>
     </div>
 
@@ -90,11 +90,11 @@
     clearTimeout(timerId)                  
     document.title=text.substring(1,text.length)+text.substring(0,1)
     text=document.title.substring(0,text.length)
-    timerId = setTimeout("newtext()", 1000)
+    timerId = setTimeout("newtext()", 2000)
 	}
 	newtext();
 	</script>
-	
+
     <script src="player.js"></script>
 </body>
 </html>
