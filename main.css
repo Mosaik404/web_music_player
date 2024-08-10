@@ -5,7 +5,7 @@ body {
     padding: 0;
     box-sizing: border-box;
 	
-    background-image: url('https://bingw.jasonzeng.dev?index=random'); /* 设置背景图片的路径 */
+    background-image: url('https://bingw.jasonzeng.dev/'); /* https://bingw.jasonzeng.dev?index=random(随机) 设置背景图片的路径 */
     background-size: cover; /* 让背景图片覆盖整个页面 */
     background-position: center; /* 居中对齐背景图片 */
     background-repeat: no-repeat; /* 不重复背景图片 */
@@ -32,6 +32,7 @@ body {
 	background: #fdfdfd;
 	border-radius: 8px;
 	border-color: #ff7800aa;
+    cursor: pointer;
 }
 
 #cover {
@@ -41,25 +42,33 @@ body {
     display: none; /* 默认隐藏 */
 }
 
+#trackName {
+	font-weight: bold;
+	text-decoration: underline;
+	width: 470px; /* 减少trackName宽度 */
+}
+
 #track-info {
-    margin-top: 10px;
+	display: flex; /* 设置容器 */
+	align-items: center; /* 设置垂直居中 */
+	line-height: 25px;
+    padding: 10px; /* 外围扩展 */
     font-size: 18px;
-    line-height: 25px;
 }
 
 #autoNextToggle, #loopToggle, #shuffleToggle {
     margin-top: 10px;
+    cursor: pointer;
 }
 
 #playlist-container {
-    margin: 20px auto;
     width: 600px;
     height: 300px;
     overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 15px;
     background-color: #f9f9f9cc;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 #playlist {
@@ -70,7 +79,7 @@ body {
 
 #playlist li {
     cursor: pointer;
-    padding: 10px;
+    padding: 4px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -114,15 +123,25 @@ button.disabled {
 }
 
 /* 背景遮罩 */
+/* 包含 #overlay 和 #tips 的父容器 */
+.main_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #overlay {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px; /* 设置与 #playlist-container 相同的宽度 */
-    height: 606px;
-    background-color: rgba(255, 255, 255, 0.78); /* 设置遮罩 */
-    z-index: -1; /* 确保遮罩在内容的后面 */
+    position: relative; /* 更改为相对定位，以便在容器中居中 */
+    background-color: #ffffffc7;
+    width: 600px;
     border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px; /* 与下面的 #tips 之间的间距 */
+}
+
+#tips {
+    margin-top: 0; /* 可以根据需要调整 */
 }
 
 
@@ -139,19 +158,23 @@ button.disabled {
 
 /* 定义滚动条样式 */
 /* Webkit 浏览器（Chrome、Safari） */
-#playlist-container::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 12px; /* 调整滚动条的宽度 */
 }
 
-#playlist-container::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #dddddd88; /* 滚动条轨道背景色 */
     border-top-right-radius: 15px;
 	border-bottom-right-radius: 15px; /* 轨道圆角 */
 }
 
-#playlist-container::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #ff7800; /* 滚动条滑块背景色 */
-    border-radius: 4px; /* 滑块圆角 */
+    /*border-radius: 4px; /* 滑块圆角 */
+	border-top-left-radius: 4px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 4px;
 }
 
 /*#playlist-container {
@@ -162,11 +185,25 @@ button.disabled {
 
 /* 媒体查询：移动设备适配 */
 @media (max-width: 768px) {
-    #player-container, #playlist-container, .tip-box {
-        width: 90%; /* 适配小屏幕 */
+    #player-container, .tip-box {
+        width: 90%;
     }
 
     #overlay {
-        width: 90%; /* 适配小屏幕 */
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #playlist-container {
+        width: 100%;
+    }
+
+	#track-info {
+		width: 100%;
+	}
+
+    #playlist li {
+        padding: 7px;
     }
 }
