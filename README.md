@@ -35,4 +35,4 @@ mediaelementplayer.min.css 用于构建播放器格式。其本身为外链（[�
 
 主要由 ChatGPT 4o 完成构建。<br />【注意】[展示页面](https://github_demo.litmustea.eu.org/web_music_player/index.php)  所用音乐均为无版权音乐。<br />
 
-[部署效果演示图片](https://github.com/Mosaik404/web_music_player/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-08%20014334.png)
+![部署效果演示图片](https://github.com/Mosaik404/web_music_player/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-08%20014334.png)
